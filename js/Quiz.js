@@ -29,11 +29,32 @@ class Quiz {
   }
 
   play(){
+    question.hide();
+    background("Yellow");
+    fill(0);
+    textSize(26);
+    text("Resultado del Cuestionario",340, 50);
+    text("----------------------------------------",320, 65);
+    Contestant.getPlayerInfo();
     if(allContestants !== undefined){
-      fill("blue")
-      textSize20
-      text("NOTA : El concursante que respondio correctamente, esta resaltado en color verde", 130,230);
+      debugger;
+      var display_Answers = 230;
+      fill("Blue");
+      textSize(20);
+      text("*NOTA: ¡El concursante que respondió correctamente, está resaltado en color verde!",130,230);
+
+      for(var plr in allContestants){
+        debugger;
+        var correctAns = "2";
+        if (correctAns === allContestants[plr].answer)
+          fill("Green")
+        else
+          fill("red");
+
+        display_Answers+=30;
+        textSize(20);
+        text(allContestants[plr].name + ": " + allContestants[plr].answer, 250,display_Answers)
+      }
     }
   }
-
 }
